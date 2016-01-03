@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE")
+    }
+}
+group 'net.devcouch'
+version '1.0.0-SNAPSHOT'
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.9'
+  distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'io.crate:crate-jdbc:1.9.3'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE'
+    compile 'com.jolbox:bonecp:0.8.0.RELEASE'
+    testCompile 'junit:junit:4.11'
+}

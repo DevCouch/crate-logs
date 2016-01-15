@@ -18,7 +18,7 @@ import java.util.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/log")
+@RequestMapping("/logs")
 public class LogController {
 
     @Autowired

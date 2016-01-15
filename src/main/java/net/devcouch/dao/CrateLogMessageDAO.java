@@ -85,6 +85,7 @@ public class CrateLogMessageDAO implements LogDAO {
             String sql = SQL_BASE_SELECT;
             if (query != null && !query.isEmpty()) {
                 sql += " WHERE MATCH(message_ft, '" + query + "') USING phrase";
+//                sql += " WHERE message LIKE '%" + query + "%'";
                 if (level != null && !level.isEmpty()) {
                     sql += " AND level = " + level;
                 }

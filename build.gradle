@@ -16,8 +16,9 @@ task wrapper(type: Wrapper) {
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'maven-publish'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -28,5 +29,15 @@ dependencies {
     compile 'io.crate:crate-jdbc:1.9.3'
     compile 'org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE'
     compile 'com.jolbox:bonecp:0.8.0.RELEASE'
+    compile 'mysql:mysql-connector-java:5.1.38'
+
     testCompile 'junit:junit:4.11'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }
